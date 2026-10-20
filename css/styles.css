@@ -1,0 +1,903 @@
+/* ==========================================================================
+   VERITASK AI - Aesthetic Blue Cyber Design System
+   Standar Kompetisi IT / Lomba GDI: Deep Sapphire, Electric Cyan, Neon Azure, Glassmorphism
+   ========================================================================== */
+
+:root {
+  --font-primary: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Aesthetic Blue Cyber Palette (Cosmic Blue, Azure, Sapphire & Electric Cyan) */
+  --tech-blue: #0ea5e9;
+  --tech-blue-bright: #38bdf8;
+  --tech-blue-deep: #0284c7;
+  --tech-blue-glow: rgba(14, 165, 233, 0.5);
+
+  --tech-cyan: #06b6d4;
+  --tech-cyan-bright: #67e8f9;
+  --tech-cyan-deep: #0891b2;
+  --tech-cyan-glow: rgba(6, 182, 212, 0.5);
+
+  --tech-sapphire: #2563eb;
+  --tech-sapphire-bright: #60a5fa;
+  --tech-sapphire-deep: #1d4ed8;
+  --tech-sapphire-glow: rgba(37, 99, 235, 0.45);
+
+  --accent-cyan: #06b6d4;
+  --accent-indigo: #6366f1;
+  --accent-sky: #38bdf8;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+
+  /* Cyber Surface & Border Backgrounds (Deep Oceanic Navy Glass) */
+  --bg-deep: #020714;
+  --bg-surface: #040c20;
+  --bg-card: rgba(6, 16, 38, 0.85);
+  --bg-card-subtle: rgba(8, 22, 52, 0.6);
+  --border-subtle: rgba(56, 189, 248, 0.16);
+  --border-blue-glow: rgba(14, 165, 233, 0.45);
+  --border-cyan-glow: rgba(6, 182, 212, 0.45);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-deep);
+  color: #f1f5f9;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Ambient Radial Glow Background Elements (Luminous Blue & Cyan Spectrum) */
+.ambient-glow-blue {
+  position: absolute;
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.22) 0%, rgba(14, 165, 233, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(55px);
+  z-index: 0;
+}
+
+.ambient-glow-red,
+.ambient-glow-cyan {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.20) 0%, rgba(6, 182, 212, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.ambient-glow-dual {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(6, 182, 212, 0.12) 45%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(65px);
+  z-index: 0;
+}
+
+/* Dot Matrix Grid Background Pattern (Luminous Cyan & Sapphire Tints) */
+.bg-grid-pattern {
+  background-image: 
+    radial-gradient(rgba(56, 189, 248, 0.13) 1px, transparent 1px),
+    radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px, 96px 96px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Live Marquee Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-move {
+  display: inline-block;
+  animation: tickerScroll 38s linear infinite;
+}
+
+.ticker-wrap:hover .ticker-move {
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ==========================================================================
+   High-Tech Glassmorphism Panels & HUD Frames
+   ========================================================================== */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.glass-panel-subtle {
+  background: var(--bg-card-subtle);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(14, 165, 233, 0.12);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(14, 165, 233, 0.45);
+  box-shadow: 0 24px 44px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(14, 165, 233, 0.18);
+}
+
+/* High-Tech HUD Corner Brackets (Ice Blue Top-Left, Electric Cyan Bottom-Right) */
+.hud-frame {
+  position: relative;
+}
+
+.hud-frame::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--tech-blue-bright);
+  border-left: 2px solid var(--tech-blue-bright);
+  border-top-left-radius: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hud-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid var(--tech-cyan-bright);
+  border-right: 2px solid var(--tech-cyan-bright);
+  border-bottom-right-radius: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Glowing Neon Elements (Aesthetic Blue, Cyan, Sapphire & Emerald Spectrum) */
+.glow-blue {
+  box-shadow: 0 0 28px -4px rgba(14, 165, 233, 0.55);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 28px -4px rgba(6, 182, 212, 0.55);
+}
+
+.glow-sapphire {
+  box-shadow: 0 0 28px -4px rgba(37, 99, 235, 0.55);
+}
+
+.glow-dual {
+  box-shadow: -6px 0 25px -4px rgba(37, 99, 235, 0.45), 6px 0 25px -4px rgba(6, 182, 212, 0.5);
+}
+
+.glow-red, .glow-rose {
+  box-shadow: 0 0 25px -4px rgba(244, 63, 94, 0.45);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.45);
+}
+
+.glow-whatsapp {
+  box-shadow: 0 0 30px -4px rgba(37, 211, 102, 0.55);
+}
+
+/* ==========================================================================
+   Explainable AI - Text Annotation Marks (Aesthetic Cyan & Blue Tones)
+   ========================================================================== */
+.annotation-badge {
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  display: inline;
+  position: relative;
+  cursor: help;
+  transition: all 0.2s ease;
+  margin: 0 1px;
+}
+
+/* Sensasionalisme: Warning Amber-Cyan */
+.badge-sensational {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fde68a;
+  border-bottom: 2px solid #f59e0b;
+  border-radius: 4px;
+}
+
+.badge-sensational:hover {
+  background: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
+
+/* Urgensi / FOMO: Deep Sapphire */
+.badge-urgency {
+  background: rgba(99, 102, 241, 0.22);
+  color: #c7d2fe;
+  border-bottom: 2px solid #6366f1;
+  border-radius: 4px;
+}
+
+.badge-urgency:hover {
+  background: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.4);
+}
+
+/* Sumber Anonim: Cyber Electric Blue */
+.badge-source {
+  background: rgba(14, 165, 233, 0.2);
+  color: #bae6fd;
+  border-bottom: 2px solid #0ea5e9;
+  border-radius: 4px;
+}
+
+.badge-source:hover {
+  background: rgba(14, 165, 233, 0.38);
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.4);
+}
+
+/* Manipulasi Emosi / Fear: Royal Blue Accent */
+.badge-fear {
+  background: rgba(37, 99, 235, 0.22);
+  color: #bfdbfe;
+  border-bottom: 2px solid #3b82f6;
+  border-radius: 4px;
+}
+
+.badge-fear:hover {
+  background: rgba(37, 99, 235, 0.38);
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.45);
+}
+
+/* Tanda Baca Ekstrem */
+.badge-punct {
+  background: rgba(6, 182, 212, 0.22);
+  color: #a5f3fc;
+  border-bottom: 2px dashed #06b6d4;
+  border-radius: 4px;
+}
+
+/* Tooltip on Hover for Annotated Marks */
+.annotation-badge:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0b111e;
+  color: #f8fafc;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  z-index: 50;
+  pointer-events: none;
+  animation: fadeInTooltip 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInTooltip {
+  from { opacity: 0; transform: translate(-50%, 6px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Circular Score Gauge */
+.gauge-circle {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Scanner Pulse Animation */
+@keyframes scanPulse {
+  0% { transform: translateY(0%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #2563eb, #38bdf8, #06b6d4, transparent);
+  box-shadow: 0 0 16px #38bdf8, 0 0 24px #06b6d4;
+  animation: scanPulse 2.5s infinite ease-in-out;
+  display: none;
+}
+
+.is-scanning .scanner-line {
+  display: block;
+}
+
+/* Progress bar fill transition */
+.progress-fill {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dropzone OCR Styling (Tech Target Frame) */
+.ocr-dropzone {
+  border: 2px dashed rgba(14, 165, 233, 0.35);
+  background: rgba(14, 165, 233, 0.03);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+}
+
+.ocr-dropzone:hover, .ocr-dropzone.drag-over {
+  border-color: #38bdf8;
+  background: rgba(14, 165, 233, 0.08);
+  transform: scale(1.005);
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.25), inset 0 0 15px rgba(6, 182, 212, 0.12);
+}
+
+/* Floating Ticker Animation */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.25); }
+}
+
+.live-pulse-dot {
+  animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* WhatsApp Verification Bot Simulator Styles */
+.wa-widget-btn {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 45;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wa-widget-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+}
+
+.wa-chat-window {
+  position: fixed;
+  bottom: 92px;
+  right: 26px;
+  width: 375px;
+  max-width: calc(100vw - 32px);
+  height: 540px;
+  max-height: calc(100vh - 120px);
+  z-index: 50;
+  background-color: #0b141a;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(14, 165, 233, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: waPopup 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes waPopup {
+  from { opacity: 0; transform: translateY(24px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.wa-chat-body {
+  background-color: #0b141a;
+  background-image: radial-gradient(#1e2b34 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.wa-bubble-user {
+  background-color: #005c4b;
+  color: #e9edef;
+  border-radius: 14px 2px 14px 14px;
+  align-self: flex-end;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.wa-bubble-bot {
+  background-color: #202c33;
+  color: #e9edef;
+  border-radius: 2px 14px 14px 14px;
+  align-self: flex-start;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Typing Indicator Animation */
+.typing-dot {
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* High-Tech Shimmer Badge (Aesthetic Blue & Cyan Shimmer) */
+@keyframes shimmerTech {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.12) 0%, rgba(6, 182, 212, 0.28) 50%, rgba(14, 165, 233, 0.12) 100%);
+  background-size: 200% 100%;
+  animation: shimmerTech 3s infinite;
+}
+
+/* Digital Certificate Card Styling (Holographic Sapphire & Cyan Border) */
+.cert-border {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 35%, #6366f1 70%, #06b6d4 100%);
+  padding: 2px;
+  border-radius: 1.5rem;
+}
+
+/* High-Tech Cyber Badges & Monospace Status Tags */
+.cyber-badge-blue {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.4);
+}
+
+.cyber-badge-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #67e8f9;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+.cyber-badge-red {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.cyber-tag-mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Speech Recognition Microphone Pulse */
+@keyframes micPulse {
+  0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+  70% { box-shadow: 0 0 0 14px rgba(6, 182, 212, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+}
+
+.mic-recording-pulse {
+  animation: micPulse 1.4s infinite;
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #38bdf8 !important;
+}
+
+/* Image Forensics ELA Canvas & Comparison */
+.forensics-canvas-wrap {
+  position: relative;
+  background: #02050e;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.forensics-canvas-wrap canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Indonesia SVG Map Styling */
+.map-province-path {
+  transition: all 0.25s ease-out;
+}
+
+.map-province-path:hover path {
+  filter: brightness(1.25) drop-shadow(0 0 8px rgba(14, 165, 233, 0.6));
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* ==========================================================================
+   LIGHT MODE STYLES (Cyber Clean Light Theme - Mode Terang)
+   ========================================================================== */
+html.light,
+html:not(.dark) {
+  --bg-deep: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.94);
+  --bg-card-subtle: rgba(241, 245, 249, 0.88);
+  --border-subtle: rgba(14, 165, 233, 0.22);
+  --border-blue-glow: rgba(14, 165, 233, 0.35);
+  --border-red-glow: rgba(239, 68, 68, 0.35);
+}
+
+html.light body,
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.light .bg-grid-pattern,
+html:not(.dark) .bg-grid-pattern {
+  background-image: 
+    radial-gradient(rgba(14, 165, 233, 0.22) 1.2px, transparent 1.2px),
+    radial-gradient(rgba(59, 130, 246, 0.14) 1.2px, transparent 1.2px) !important;
+}
+
+html.light .glass-panel,
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: rgba(14, 165, 233, 0.22) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(14, 165, 233, 0.12) !important;
+}
+
+html.light .glass-panel-subtle,
+html:not(.dark) .glass-panel-subtle {
+  background: rgba(241, 245, 249, 0.88) !important;
+  border-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+html.light header,
+html:not(.dark) header {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+html.light #top-live-ticker,
+html:not(.dark) #top-live-ticker {
+  background: #f1f5f9 !important;
+  border-bottom-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+html.light nav#app-tabs,
+html:not(.dark) nav#app-tabs {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(14, 165, 233, 0.25) !important;
+}
+
+html.light .text-white,
+html:not(.dark) .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100,
+html:not(.dark) .text-slate-100 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-200,
+html:not(.dark) .text-slate-200 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-300,
+html:not(.dark) .text-slate-300 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-400,
+html:not(.dark) .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* Background overrides for dark containers in light mode */
+html.light .bg-\[\#040814\],
+html:not(.dark) .bg-\[\#040814\],
+html.light .bg-\[\#02050e\],
+html:not(.dark) .bg-\[\#02050e\],
+html.light .bg-\[\#030712\],
+html:not(.dark) .bg-\[\#030712\],
+html.light .bg-\[\#04060a\],
+html:not(.dark) .bg-\[\#04060a\],
+html.light .bg-\[\#060c1a\],
+html:not(.dark) .bg-\[\#060c1a\],
+html.light .bg-slate-950,
+html:not(.dark) .bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+html.light .bg-slate-900,
+html:not(.dark) .bg-slate-900 {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-slate-900\/90,
+html:not(.dark) .bg-slate-900\/90 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+html.light textarea,
+html:not(.dark) textarea,
+html.light input[type="text"],
+html:not(.dark) input[type="text"],
+html.light input[type="url"],
+html:not(.dark) input[type="url"],
+html.light select,
+html:not(.dark) select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(14, 165, 233, 0.3) !important;
+}
+
+html.light textarea::placeholder,
+html:not(.dark) textarea::placeholder,
+html.light input::placeholder,
+html:not(.dark) input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light .ambient-glow-blue,
+html:not(.dark) .ambient-glow-blue {
+  opacity: 0.35 !important;
+}
+
+html.light .ambient-glow-red,
+html:not(.dark) .ambient-glow-red,
+html.light .ambient-glow-cyan,
+html:not(.dark) .ambient-glow-cyan {
+  opacity: 0.3 !important;
+}
+
+html.light .ambient-glow-dual,
+html:not(.dark) .ambient-glow-dual {
+  opacity: 0.35 !important;
+}
+
+html.light footer,
+html:not(.dark) footer {
+  background: #f1f5f9 !important;
+  border-top-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+html.light ::-webkit-scrollbar-track,
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+html.light ::-webkit-scrollbar-thumb,
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover,
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* ==========================================================================
+   Print / PDF Mode Styling
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header, footer, nav, #app-tabs, #scan-inputs-section, .no-print, button, .wa-widget-btn, .wa-chat-window, .ambient-glow-blue, .ambient-glow-red, .ambient-glow-dual, #top-live-ticker {
+    display: none !important;
+  }
+
+  #report-modal {
+    position: static !important;
+    display: block !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  #report-modal > div {
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    max-width: 100% !important;
+  }
+
+  .annotation-badge {
+    background: #f1f5f9 !important;
+    color: #000000 !important;
+    border-bottom: 1px solid #000000 !important;
+  }
+}
+
+/* ==========================================================================
+   Leaflet GIS Cyber Map & Spatial Pulse Markers (Kecamatan / Kab / Prov)
+   ========================================================================== */
+#spatial-leaflet-map {
+  background: #020617 !important;
+  font-family: var(--font-primary);
+}
+
+.leaflet-container {
+  background: #020617 !important;
+}
+
+/* Custom Cyber Marker with Animated Radar Pulse */
+.cyber-leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.cyber-spatial-marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  cursor: pointer;
+}
+
+.cyber-spatial-marker .marker-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.cyber-spatial-marker:hover .marker-dot {
+  transform: scale(1.25);
+}
+
+.cyber-spatial-marker.marker-red .marker-dot {
+  background-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.85);
+}
+
+.cyber-spatial-marker.marker-amber .marker-dot {
+  background-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.85);
+}
+
+.cyber-spatial-marker.marker-blue .marker-dot {
+  background-color: #0ea5e9;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.85);
+}
+
+.cyber-spatial-marker.marker-emerald .marker-dot {
+  background-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.85);
+}
+
+.cyber-spatial-marker .marker-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  animation: cyberPulse 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.cyber-spatial-marker.marker-red .marker-pulse {
+  background: rgba(239, 68, 68, 0.6);
+}
+
+.cyber-spatial-marker.marker-amber .marker-pulse {
+  background: rgba(245, 158, 11, 0.6);
+}
+
+.cyber-spatial-marker.marker-blue .marker-pulse {
+  background: rgba(14, 165, 233, 0.6);
+}
+
+.cyber-spatial-marker.marker-emerald .marker-pulse {
+  background: rgba(16, 185, 129, 0.6);
+}
+
+@keyframes cyberPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* Leaflet Dark Glass Popup */
+.leaflet-popup-content-wrapper {
+  background: rgba(4, 8, 20, 0.94) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #f1f5f9 !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 0 20px rgba(14, 165, 233, 0.25) !important;
+  padding: 2px !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(4, 8, 20, 0.94) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+  padding: 8px !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   Stempel & Kartu Berita Lolos Verifikasi (Non-Hoaks 100% Sahih)
+   ========================================================================= */
+.stamp-verified {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.3));
+  border: 1.5px solid rgba(16, 185, 129, 0.65);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.verified-card-glow {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.verified-card-glow:hover {
+  border-color: rgba(16, 185, 129, 0.7) !important;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
